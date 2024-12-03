@@ -26,9 +26,9 @@ export const readFileAsBase64 = (file: Blob) => {
 
 export default function Canvas() {
   const [excalidrawAPI, setExcalidrawAPI] = useState<ExcalidrawImperativeAPI>();
-  const [data, setData] = useState("");
+  const [_, setData] = useState("");
   const [code, setCode] = useState("");
-  const [terminal, setTerminal] = useState("");
+  const [_, setTerminal] = useState("");
 
   const onConvert = async () => {
     if (!excalidrawAPI) {
