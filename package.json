@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "website": "next dev",
+    "api": "FLASK_DEBUG=1 pip3 install -r requirements.txt && python3 -m flask --app api/index run -p 8000 --reload",
+    "dev": "concurrently \"npm run website\" \"npm run api\"",
     "build": "next build",
     "start": "next start",
     "format": "npx prettier --write .",
@@ -12,7 +14,9 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@excalidraw/excalidraw": "^0.17.6",
     "@tanstack/react-query": "~5.53.3",
+    "concurrently": "^9.1.0",
     "lucide-react": "~0.417.0",
     "next": "~14.2.10",
     "react": "~18.3.1",
@@ -20,12 +24,12 @@
   },
   "devDependencies": {
     "@eslint/js": "~9.8.0",
+    "@tanstack/eslint-plugin-query": "~5.53.0",
     "@types/node": "~22.1.0",
     "@types/react": "~18.3.3",
     "@types/react-dom": "~18.3.0",
     "@typescript-eslint/eslint-plugin": "~8.0.0",
     "@typescript-eslint/parser": "~8.0.0",
-    "@tanstack/eslint-plugin-query": "~5.53.0",
     "autoprefixer": "~10.4.19",
     "eslint": "~9.8.0",
     "eslint-config-prettier": "~9.1.0",
